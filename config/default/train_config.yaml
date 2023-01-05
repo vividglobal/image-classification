@@ -1,0 +1,83 @@
+model_name : 'mobilenet_v2'
+
+# model_name must be in following list: 
+#   - mobilenet_v2
+#   - resnet18
+#   - resnet34
+#   - resnet50
+#   - resnet101
+#   - resnet152
+#   - resnext50_32x4d
+#   - resnext101_32x8d
+#   - wide_resnet50_2
+#   - wide_resnet101_2
+#   - shufflenet_v2_x0_5
+#   - shufflenet_v2_x1_0
+
+
+img_size : 224
+padding : False   # padding before resize for unsquare image
+weights : /u01/Intern/chinhdv/code/M_classification_torch/result/runs_default/best.pt
+continue_training : False
+epochs: 500
+batch_size : 128
+save_best: True
+device : cuda:0
+patience : 50    # For Early-Stopping
+save_dir : /u01/Intern/chinhdv/code/M_classification_torch/result/runs_human_attributes_1  # save checkpoint
+
+visualize: True
+
+# sampling_balance_data : 500 # set True if sampling n sampling for each label in data
+
+hyp:   #hyper parameters
+  lr0: 0.01  # initial learning rate (SGD=1E-2, Adam=1E-3)
+  lrf: 0.2 # final OneCycleLR learning rate (lr0 * lrf)
+  momentum: 0.937  # SGD momentum/Adam beta1
+  weight_decay: 0.0005  # optimizer weight decay 5e-4
+  warmup_epochs: 3.0  # warmup epochs (fractions ok)    bias lr falls from 0.1 to lr0, all other lrs rise from 0.0 to lr0
+  warmup_momentum: 0.8  # warmup initial momentum
+  warmup_bias_lr: 0.1  # warmup initial bias lr
+  
+#augment params
+augment_params:
+  num_layers : 2
+  # augment_hsv : 
+  #   hgain : 0.5
+  #   sgain : 0.5
+  #   vgain : 0.5
+  augment_RGB:
+      R_gain: [0.5,1.5]
+      G_gain: [0.5,1.5]
+      B_gain: [0.5,1.5]
+
+# geometric augmentation
+
+  fliplr: [0.5 ,0.5]
+  rotate: [-45,45 ]
+
+  shearX : [-0.5,0.5 ]
+  shearY : [-0.5,0.5]
+  translateX : [-0.4,0.4]
+  translateY : [-0.4,0.4]
+  Sharpness : 
+  cut_25_left: [0.05,0.25]
+  cut_25_right: [0.05,0.25]
+  cut_25_above: [0.05,0.25]
+  cut_25_under: [0.05,0.25]
+  cutout: [0.1,0.3]
+
+# photometric augmentation
+
+  hist_equalize : [1,1]
+  invert :                 # return 255 - image
+  mix_up_gray_scale : True      # convert img to grayscale and mixup with original image.
+  adjust_brightness : [0.5, 1.5]   # mixup with white img
+  solarize : 
+  # For each pixel in the image, select the pixel. 
+  #If the value is less than the threshold.Otherwise, subtract 255 from the pixel.
+  posterize:        # shift right bit values and left shift ( equivalent clip value ) it so strong augment 
+                    #in range(0,8) , 4 is no-augment
+  contrast : #True               # mixup original image with a mean pixel-value image.     
+
+DEBUG : True

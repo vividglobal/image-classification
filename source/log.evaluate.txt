@@ -1,0 +1,44 @@
+-------------age-----------
+              precision    recall  f1-score   support
+
+    children     0.6925    0.4192    0.5222       532
+      middle     0.9546    0.9795    0.9669      9251
+         old     0.4892    0.4194    0.4516       217
+
+    accuracy                         0.9375     10000
+   macro avg     0.7121    0.6060    0.6469     10000
+weighted avg     0.9306    0.9375    0.9320     10000
+
+-------------gender-----------
+              precision    recall  f1-score   support
+
+      female     0.9048    0.9123    0.9085      5291
+        male     0.9005    0.8921    0.8963      4709
+
+    accuracy                         0.9028     10000
+   macro avg     0.9027    0.9022    0.9024     10000
+weighted avg     0.9028    0.9028    0.9028     10000
+
+
+
+-------------age-----------
+              precision    recall  f1-score   support
+
+    children     0.6925    0.4192    0.5222       532
+      middle     0.9546    0.9795    0.9669      9251
+         old     0.4892    0.4194    0.4516       217
+
+    accuracy                         0.9375     10000
+   macro avg     0.7121    0.6060    0.6469     10000
+weighted avg     0.9306    0.9375    0.9320     10000
+
+-------------gender-----------
+              precision    recall  f1-score   support
+
+      female     0.9048    0.9123    0.9085      5291
+        male     0.9005    0.8921    0.8963      4709
+
+    accuracy                         0.9028     10000
+   macro avg     0.9027    0.9022    0.9024     10000
+weighted avg     0.9028    0.9028    0.9028     10000
+

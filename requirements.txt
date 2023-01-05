@@ -1,0 +1,10 @@
+torch==1.9.1
+torchvision==0.10.1
+opencv-python
+numpy==1.19.5
+matplotlib==3.4.3
+pandas==1.1.5
+tqdm==4.62.3
+PyYAML==5.4.1
+sklearn
+*.txt
